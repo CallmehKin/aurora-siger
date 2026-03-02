@@ -1,0 +1,81 @@
+{
+ "cells": [
+  {
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2026-03-02T13:00:39.485132300Z",
+     "start_time": "2026-03-02T13:00:39.275001600Z"
+    }
+   },
+   "cell_type": "code",
+   "source": [
+    "# === SCRIPT DE TELEMETRIA: NAVE AURORA SIGER ====\n",
+    "\n",
+    "# 1. Organização dos dados (Tabela de Telemetria)\n",
+    "telemetria = {\n",
+    "    \"temp_interna\": 22,          # em °C\n",
+    "    \"temp_externa\": -50,         # em °C\n",
+    "    \"integridade_estrutural\": 1,  # 1 = OK, 0 = Falha\n",
+    "    \"nivel_energia\": 95,         # em %\n",
+    "    \"pressao_tanques\": 100,      # em PSI\n",
+    "    \"modulos_criticos\": \"Ativos\" # Status operacional\n",
+    "}\n",
+    "\n",
+    "def verificar_lancamento(dados):\n",
+    "    print(\"--- INICIANDO PROTOCOLO DE VERIFICAÇÃO ---\")\n",
+    "\n",
+    "    # Lista para armazenar possíveis problemas encontrados\n",
+    "    alertas = []\n",
+    "\n",
+    "    # 2. Execução das Verificações (Lógica do Algoritmo)\n",
+    "\n",
+    "    # Verificação de Integridade Estrutural\n",
+    "    if dados[\"integridade_estrutural\"] != 1:\n",
+    "        alertas.append(\"ERRO: Falha na integridade estrutural detectada.\")\n",
+    "\n",
+    "    # Verificação de Energia (Mínimo de 80% para decolagem)\n",
+    "    if dados[\"nivel_energia\"] < 80:\n",
+    "        alertas.append(f\"ALERTA: Nível de energia crítico ({dados['nivel_energia']}%).\")\n",
+    "\n",
+    "    # Verificação dos Módulos Críticos\n",
+    "    if dados[\"modulos_criticos\"] != \"Ativos\":\n",
+    "        alertas.append(\"ERRO: Módulos críticos não estão prontos.\")\n",
+    "\n",
+    "    # Verificação de Pressão (Faixa segura entre 90 e 110 PSI)\n",
+    "    if dados[\"pressao_tanques\"] < 90 or dados[\"pressao_tanques\"] > 110:\n",
+    "        alertas.append(f\"ALERTA: Pressão fora da faixa de segurança ({dados['pressao_tanques']} PSI).\")\n",
+    "\n",
+    "    # 3. Resultado Final Impresso\n",
+    "    print(\"\\n--- RESULTADO DA ANÁLISE ---\")\n",
+    "    if not alertas:\n",
+    "        print(\"SISTEMAS: NOMINAIS\")\n",
+    "        print(\"DECISÃO: >>> PRONTO PARA DECOLAR! <<<\")\n",
+    "    else:\n",
+    "        for falha in alertas:\n",
+    "            print(falha)\n",
+    "        print(\"DECISÃO: >>> DECOLAGEM ABORTADA! <<<\")\n",
+    "\n",
+    "# Executa o algoritmo com os dados da tabela\n",
+    "verificar_lancamento(telemetria)"
+   ],
+   "id": "18d6fa60fb1b1d6d",
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "--- INICIANDO PROTOCOLO DE VERIFICAÇÃO ---\n",
+      "\n",
+      "--- RESULTADO DA ANÁLISE ---\n",
+      "SISTEMAS: NOMINAIS\n",
+      "DECISÃO: >>> PRONTO PARA DECOLAR! <<<\n"
+     ]
+    }
+   ],
+   "execution_count": 1
+  }
+ ],
+ "metadata": {},
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
