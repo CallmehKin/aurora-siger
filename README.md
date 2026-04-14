@@ -6,7 +6,8 @@ Este projeto faz parte da atividade integradora para o desenvolvimento de um **R
 O sistema recebe dados de sensores (temperatura, energia, integridade e pressão) e utiliza um algoritmo lógico para decidir se o lançamento deve ser **AUTORIZADO** ou **ABORTADO** com base em faixas de segurança predefinidas.
 
 ## Prints da Execução
-![Print do Código Funcionando]([https://media.discordapp.net/attachments/1477065391174844477/1478001109388886150/image.png?ex=69a6cf4c&is=69a57dcc&hm=f6e89f9c21a7adc1e793b291f7f617a930fb23b8143ba8aadb27c429c2005d73&=&format=webp&quality=lossless](https://media.discordapp.net/attachments/1479124529568546969/1493755406395113573/image.png?ex=69e01fa1&is=69dece21&hm=6798c86931a6f4c2cc749ba2fe4d5a045dad11cacb8eeddca0ba4e5404e1e319&=&format=webp&quality=lossless))
+![Print do Código Funcionando](<img width="694" height="633" alt="image" src="https://github.com/user-attachments/assets/b2021064-6bac-4b7e-8d60-5f3e593ad4a7" />
+)
 
 *Legenda: Execução do script validando os sistemas como Nominais.*
 
